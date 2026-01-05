@@ -1,0 +1,53 @@
+services:
+  ganache:
+    image: trufflesuite/ganache:latest
+    container_name: nft-lending-ganache
+    ports:
+      - "8545:8545"
+    command: >
+      --mnemonic "test test test test test test test test test test test junk"
+      --networkId 1337
+      --accounts 10
+      --defaultBalanceEther 1000
+      --host 0.0.0.0
+      --port 8545
+    networks:
+      - blockchain-network
+
+  blockscout-db:
+    image: postgres:14
+    container_name: nft-lending-postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: blockscout
+    volumes:
+      - blockscout-db-data:/var/lib/postgresql/data
+    networks:
+      - blockchain-network
+
+  blockscout:
+    image: blockscout/blockscout:latest
+    container_name: nft-lending-blockscout
+    depends_on:
+      - blockscout-db
+      - ganache
+    environment:
+      ETHEREUM_JSONRPC_VARIANT: ganache
+      ETHEREUM_JSONRPC_HTTP_URL: http://ganache:8545
+      DATABASE_URL: postgresql://postgres:postgres@blockscout-db:5432/blockscout?ssl=false
+      ECTO_USE_SSL: "false"
+      SECRET_KEY_BASE: "56NtB48ear7+wMSf0IQuWDAAazhpb31qyc7GiyspBP2vh7t5zlCsF5QDv76chXeN"
+      PORT: 4000
+      COIN: ETH
+    ports:
+      - "4000:4000"
+    networks:
+      - blockchain-network
+
+networks:
+  blockchain-network:
+    driver: bridge
+
+volumes:
+  blockscout-db-data:

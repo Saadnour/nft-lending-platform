@@ -1,0 +1,48 @@
+{
+  "name": "nft-lending-blockchain",
+  "version": "1.0.0",
+  "description": "NFT Lending Platform - Smart Contracts",
+  "main": "index.js",
+  "scripts": {
+    "node": "hardhat node",
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:local": "hardhat run scripts/deploy.js --network hardhat",
+    "test": "hardhat test",
+    "test-loan": "hardhat run scripts/test-loan.js --network localhost",
+    "clean": "hardhat clean"
+  },
+  "keywords": [
+    "blockchain",
+    "nft",
+    "lending",
+    "hardhat",
+    "solidity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^10.0.0",
+    "chai": "^4.3.7",
+    "hardhat": "^2.28.0",
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.5",
+    "typechain": "^8.3.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0",
+    "chart.js": "^4.5.1",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.0",
+    "lucide-react": "^0.562.0",
+    "react-chartjs-2": "^5.3.1"
+  }
+}

@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Variables CSS */
+:root {
+    --primary-color: #00d4ff;
+    --secondary-color: #ff00ff;
+    --dark-bg: #0a0e27;
+    --dark-paper: #141b38;
+    --success-color: #00ff88;
+    --error-color: #ff3366;
+    --warning-color: #ffaa00;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--dark-bg);
+    color: #ffffff;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5de4ff;
+}
+
+/* Animations personnalisées */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+    }
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Effets de fond */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #00d4ff 0%, #0096cc 100%);
+}
+
+.bg-gradient-secondary {
+    background: linear-gradient(135deg, #ff00ff 0%, #cc00cc 100%);
+}
+
+.bg-gradient-dark {
+    background: linear-gradient(180deg, #141b38 0%, #0a0e27 100%);
+}
+
+/* Effets de texte */
+.text-gradient-primary {
+    background: linear-gradient(90deg, #00d4ff 0%, #ff00ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Classes utilitaires */
+.glass-effect {
+    background: rgba(20, 27, 56, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.neon-border {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Transitions */
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Dark mode par défaut */
+body {
+    color-scheme: dark;
+}
+
+/* États de chargement */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 212, 255, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}

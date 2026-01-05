@@ -1,0 +1,29 @@
+# ========================================
+# Dépendances Python pour le déploiement
+# ========================================
+
+# Web3 et blockchain
+web3==6.11.3
+py-solc-x==2.0.2
+
+# Variables d'environnement
+python-dotenv==1.0.0
+
+# Utilitaires
+requests==2.31.0
+python-decouple==3.8
+
+# Base de données (optionnel)
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.23
+
+# Tests et audit
+slither-analyzer==0.10.0
+mythril==0.24.8
+
+# Formatage et linting
+black==23.12.1
+pylint==3.0.3
+
+# IPFS (optionnel pour métadonnées)
+ipfshttpclient==0.8.0a2

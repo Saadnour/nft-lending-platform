@@ -1,0 +1,13 @@
+{
+  "NFTLending": {
+    "address": "0xba1F69Fb4A8E747b3b7E5f62977b129154eB07a3",
+    "deployedAt": "2026-01-04T20:38:18.958Z"
+  },
+  "MockNFT": {
+    "address": "0x611a96830D5777239d91b6CB976ab88380cE5662",
+    "deployedAt": "2026-01-04T20:38:18.958Z"
+  },
+  "deployer": "0x2E22512E9ad5fd8d9193369Bd564a784Ad414d74",
+  "network": "ganache",
+  "chainId": "1337"
+}
